@@ -7,7 +7,7 @@
   <title>Advanced Training Programs with Dr. Saami Khalifian | Aesthetic Arts Academy</title>
   <meta name="description" content="Private, expert-level aesthetic training programs with Dr. Saami Khalifian, MD. Advanced Full Facial Balancing, Laser Masterclass, and Clinical Shadowing — hosted at SOM Aesthetics in Encinitas, CA." />
   <link rel="canonical" href="https://training.som-aesthetics.com" />
-  <link rel="icon" type="image/jpeg" href="aaa_landing_page_assets/aaa_favicon.jpg" />
+  <link rel="icon" type="image/png" href="aaa_landing_page_assets/aaa_icon.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,7 +62,9 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      padding: 80px 40px 72px;
+      padding: 100px 40px 88px;
+      max-width: 1080px;
+      margin: 0 auto;
     }
 
     /* ── Reset & Base ── */
@@ -167,13 +169,8 @@
       background: var(--dark-teal);
       padding: 72px 40px 64px;
     }
-    .hero-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 56px;
-      align-items: start;
+    .hero-copy {
+      max-width: 640px;
     }
     .hero-eyebrow {
       font-size: 11px;
@@ -201,14 +198,28 @@
       color: var(--lilac-light);
     }
     .hero-credentials {
+      list-style: none;
       margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
-    .hero-credentials p {
+    .hero-credentials li {
       font-size: 13px;
       font-weight: 400;
       color: var(--teal-light);
-      line-height: 1.7;
+      line-height: 1.5;
       letter-spacing: 0.02em;
+      padding-left: 16px;
+      position: relative;
+    }
+    .hero-credentials li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--lilac-light);
+      font-size: 11px;
+      top: 1px;
     }
     .hero-sub {
       font-size: 16px;
@@ -443,6 +454,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
+      align-items: stretch;
     }
     .program-card {
       border: 1.5px solid var(--grey);
@@ -452,6 +464,7 @@
       flex-direction: column;
       background: var(--white);
       transition: box-shadow 0.2s;
+      height: 100%;
     }
     .program-card:hover {
       box-shadow: 0 6px 28px rgba(15,74,93,0.12);
@@ -632,104 +645,137 @@
       font-weight: 300;
     }
 
-    /* ── PROGRAM DETAIL SECTIONS ── */
-    .program-detail {
+    /* ── PROGRAM TABS SECTION ── */
+    #program-details {
       padding: 72px 40px;
       background: var(--off-white);
       border-top: 1px solid var(--grey);
     }
-    .program-detail:nth-child(even) {
-      background: var(--white);
-    }
-    .program-detail-inner {
+    .tabs-inner {
       max-width: 1080px;
       margin: 0 auto;
     }
-    .program-detail-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 32px;
-      margin-bottom: 36px;
-      flex-wrap: wrap;
+    .tabs-header {
+      text-align: center;
+      margin-bottom: 40px;
     }
-    .program-detail-header .section-title {
-      margin-bottom: 0;
-    }
-    .program-detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 40px;
-      align-items: start;
-    }
-    .detail-meta-row {
+    /* Tab strip */
+    .tab-strip {
       display: flex;
       gap: 0;
-      margin-bottom: 28px;
-      border: 1px solid var(--grey);
-      border-radius: 4px;
-      overflow: hidden;
+      border-bottom: 2px solid var(--grey);
+      margin-bottom: 0;
     }
-    .detail-meta-cell {
+    .tab-btn {
       flex: 1;
-      padding: 14px 18px;
-      background: var(--white);
+      background: var(--off-white);
+      border: none;
       border-right: 1px solid var(--grey);
-    }
-    .detail-meta-cell:last-child { border-right: none; }
-    .detail-meta-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 4px;
-    }
-    .detail-meta-value {
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      padding: 18px 20px 20px;
+      font-family: var(--body-font);
       font-size: 13px;
       font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--grey-mid);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .tab-btn:last-child { border-right: none; }
+    .tab-btn:hover {
       color: var(--dark-teal);
+      background: #eef4f6;
     }
-    .detail-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 28px;
-      font-size: 14px;
-    }
-    .detail-table th {
-      background: var(--dark-teal);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 12px 16px;
-      text-align: left;
-    }
-    .detail-table td {
-      padding: 14px 16px;
-      border: 1px solid var(--grey);
+    .tab-btn.active {
+      color: var(--dark-teal);
       background: var(--white);
-      font-weight: 500;
-      color: var(--dark-teal);
+      border-bottom-color: var(--teal-deep);
+    }
+    .tab-btn .tab-date {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      margin-top: 4px;
+    }
+    /* Tab panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    /* Panel card */
+    .tab-card {
+      background: var(--white);
+      border: 1px solid var(--grey);
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      overflow: hidden;
+    }
+    /* Meta bar inside tab */
+    .tab-meta-bar {
+      display: flex;
+      background: var(--dark-teal);
+      padding: 16px 32px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .tab-meta-item { }
+    .tab-meta-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 3px;
+    }
+    .tab-meta-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    /* Panel body: left content + right pricing */
+    .tab-body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+    }
+    .tab-content {
+      padding: 36px;
+      border-right: 1px solid var(--grey);
+    }
+    .tab-pricing {
+      padding: 32px 28px;
+      background: var(--soft-purple);
+      display: flex;
+      flex-direction: column;
+    }
+    .detail-intro {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--grey-mid);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--grey);
     }
     .learn-title {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .learn-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 9px;
     }
     .learn-list li {
       display: flex;
-      gap: 12px;
+      gap: 11px;
       align-items: flex-start;
       font-size: 14px;
       font-weight: 300;
@@ -738,67 +784,95 @@
     }
     .learn-list li::before {
       content: '';
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--teal);
       flex-shrink: 0;
-      margin-top: 7px;
-    }
-    .pricing-card {
-      background: var(--white);
-      border-top: 4px solid var(--teal-deep);
-      border-radius: 4px;
-      padding: 30px 28px;
-      box-shadow: 0 4px 24px rgba(15,74,93,0.1);
-    }
-    .pricing-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 20px;
-    }
-    .pricing-option {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--grey);
-    }
-    .pricing-option:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .pricing-option-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--dark-teal);
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    .pricing-option-price {
-      font-family: var(--heading-font);
-      font-size: 30px;
-      color: var(--dark-teal);
-      margin-bottom: 4px;
-    }
-    .pricing-option-note {
-      font-size: 12px;
-      color: var(--grey-mid);
-      line-height: 1.5;
+      margin-top: 8px;
     }
     .detail-note {
-      background: var(--soft-purple);
+      background: rgba(191,174,213,0.15);
       border-left: 3px solid var(--lilac);
       border-radius: 3px;
-      padding: 16px 18px;
-      font-size: 13px;
+      padding: 12px 14px;
+      font-size: 12px;
       color: var(--grey-mid);
       line-height: 1.65;
       margin-top: 24px;
     }
     .detail-note strong { color: var(--dark-teal); }
+    /* Pricing cards grid */
+    .pricing-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .pricing-cards.single { grid-template-columns: 1fr; }
+    .pricing-cards.three { grid-template-columns: 1fr 1fr 1fr; }
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--grey);
+      border-radius: 4px;
+      padding: 14px 16px;
+    }
+    .price-card.featured {
+      border-color: var(--teal-deep);
+      border-width: 1.5px;
+    }
+    .price-card-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      margin-bottom: 6px;
+    }
+    .price-card-amount {
+      font-family: var(--heading-font);
+      font-size: 22px;
+      color: var(--dark-teal);
+      margin-bottom: 4px;
+    }
+    .price-card-note {
+      font-size: 11px;
+      color: var(--grey-mid);
+      line-height: 1.45;
+    }
+    .pricing-addons {
+      font-size: 12px;
+      color: var(--grey-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      padding-top: 12px;
+      border-top: 1px solid var(--grey);
+    }
+    .pricing-addons strong { color: var(--dark-teal); font-weight: 600; }
+    .pricing-apply-btn {
+      display: block;
+      text-align: center;
+      background: var(--teal-deep);
+      color: var(--white);
+      font-family: var(--body-font);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 20px;
+      border-radius: 3px;
+      margin-top: auto;
+      transition: background 0.2s;
+    }
+    .pricing-apply-btn:hover { background: var(--teal); }
     .tech-tags {
       display: flex;
       flex-wrap: wrap;
@@ -847,16 +921,8 @@
     /* ── FOOTER ── */
     footer {
       background: var(--charcoal);
-      padding: 40px;
+      padding: 48px 40px 36px;
       text-align: center;
-    }
-    .footer-logo-text {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 4px;
     }
     .footer-tagline {
       font-size: 10px;
@@ -864,24 +930,36 @@
       text-transform: uppercase;
       color: var(--teal-light);
       font-weight: 300;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 32px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      background: none;
+      border: none;
+      padding: 0;
     }
     .footer-links a {
       font-size: 12px;
+      font-weight: 500;
       color: rgba(255,255,255,0.5);
       transition: color 0.2s;
+      background: none;
     }
     .footer-links a:hover { color: var(--teal-light); }
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 0 auto 24px;
+    }
     .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
     }
 
     /* ── ACCESSIBILITY BAR ── */
@@ -939,19 +1017,21 @@
     @media (max-width: 920px) {
       nav { padding: 0 20px; }
       .nav-phone { display: none; }
-      #book-hero { padding: 48px 20px 40px; }
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .hero-form-card { order: -1; }
+      .hero-inner { padding: 64px 20px 56px; }
       .trust-inner { grid-template-columns: repeat(2, 1fr); }
       #programs { padding: 60px 20px; }
       .programs-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       #why { padding: 60px 20px; }
       .why-inner { grid-template-columns: 1fr; gap: 40px; }
-      .program-detail { padding: 60px 20px; }
-      .program-detail-grid { grid-template-columns: 1fr; }
+      #program-details { padding: 48px 20px; }
+      .tab-strip { overflow-x: auto; }
+      .tab-btn { padding: 12px 16px 14px; font-size: 12px; }
+      .tab-body { grid-template-columns: 1fr; }
+      .tab-content { border-right: none; border-bottom: 1px solid var(--grey); padding: 24px 20px; }
+      .tab-pricing { padding: 24px 20px; }
+      .tab-meta-bar { padding: 14px 20px; gap: 20px; }
+      .pricing-cards { grid-template-columns: 1fr 1fr; }
+      .pricing-cards.three { grid-template-columns: 1fr 1fr; }
       #apply { padding: 64px 20px; }
       footer { padding: 32px 20px; }
       .mobile-sticky { display: flex; }
@@ -993,11 +1073,11 @@
         <div class="hero-copy">
           <p class="hero-eyebrow"><span>—</span> Aesthetic Arts Academy™ · Encinitas, CA</p>
           <h1 class="hero-h1" id="hero-heading">Train Directly with<br><em>Dr. Saami Khalifian</em></h1>
-          <div class="hero-credentials" aria-label="Dr. Khalifian credentials">
-            <p>• Double board-certified dermatologist &amp; cosmetic surgeon</p>
-            <p>• Medical Director at Allergan Medical Institute</p>
-            <p>• Internationally recognized educator in advanced aesthetic medicine</p>
-          </div>
+          <ul class="hero-credentials" aria-label="Dr. Khalifian credentials">
+            <li>Double board-certified dermatologist &amp; cosmetic surgeon</li>
+            <li>Medical Director at Allergan Medical Institute</li>
+            <li>Internationally recognized educator in advanced aesthetic medicine</li>
+          </ul>
           <p class="hero-sub">Private training experiences for aesthetic providers ready to level up their technique and deliver results that keep patients coming back.</p>
           <p class="hero-programs">
             Advanced Full Facial Balancing
@@ -1011,46 +1091,6 @@
           </div>
           <p class="hero-note">Limited spots. Application required.</p>
         </div>
-
-        <!-- Right: Form Card -->
-        <div class="hero-form-card" role="complementary" aria-label="Application inquiry form">
-          <p class="form-card-title">Request Information</p>
-          <p class="form-card-sub">Tell us which program interests you and we'll be in touch.</p>
-          <form
-            id="hero-inquiry-form"
-            onsubmit="return handleHeroForm(event);"
-            aria-label="Training inquiry form"
-          >
-            <div class="form-field">
-              <label for="hero-name">Full Name</label>
-              <input type="text" id="hero-name" name="name" placeholder="Your name" required autocomplete="name" />
-            </div>
-            <div class="form-field">
-              <label for="hero-email">Email Address</label>
-              <input type="email" id="hero-email" name="email" placeholder="your@email.com" required autocomplete="email" />
-            </div>
-            <div class="form-field">
-              <label for="hero-phone">Phone Number</label>
-              <input type="tel" id="hero-phone" name="phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel" />
-            </div>
-            <div class="form-field">
-              <label for="hero-program">Program of Interest</label>
-              <select id="hero-program" name="program" required>
-                <option value="" disabled selected>Select a program…</option>
-                <option value="full-facial-balancing">Advanced Full Facial Balancing — June 10</option>
-                <option value="laser-masterclass">Advanced Laser Masterclass — October 16</option>
-                <option value="clinical-shadowing">Clinical Shadowing Experience — Flexible</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="hero-license">License / Credential Type</label>
-              <input type="text" id="hero-license" name="license" placeholder="e.g. RN, NP, PA-C, MD, DO" />
-            </div>
-            <button type="submit" class="form-submit">Send My Application</button>
-          </form>
-          <p class="form-privacy">Your information is kept private and used only to follow up on your inquiry.</p>
-        </div>
       </div>
     </section>
 
@@ -1063,7 +1103,7 @@
           <p class="trust-desc">Dermatology &amp; cosmetic surgery — training at the highest clinical standard</p>
         </div>
         <div class="trust-card">
-          <div class="trust-icon" aria-hidden="true">👁️</div>
+          <div class="trust-icon" aria-hidden="true">🏛️</div>
           <p class="trust-label">Allergan Medical Institute</p>
           <p class="trust-desc">Dr. Saami serves as Medical Director — one of the most respected injector educators</p>
         </div>
@@ -1074,8 +1114,8 @@
         </div>
         <div class="trust-card">
           <div class="trust-icon" aria-hidden="true">🎯</div>
-          <p class="trust-label">Limited Capacity</p>
-          <p class="trust-desc">Max 3 injectors per session — direct, personal access to Dr. Saami</p>
+          <p class="trust-label">Small Class Sizes</p>
+          <p class="trust-desc">Intentionally intimate — personal, direct access to Dr. Saami throughout the day</p>
         </div>
       </div>
     </section>
@@ -1166,7 +1206,7 @@
               <div class="program-price-wrap">
                 <p class="program-price">$2,500</p>
                 <p class="program-price-note">Half-Day · $5,000 Full-Day immersive experience</p>
-                <a href="mailto:training@som.md?subject=Clinical%20Shadowing%20Experience%20%E2%80%94%20Request%20Info&body=Hi%2C%0A%0AI%27m%20interested%20in%20the%20Clinical%20Shadowing%20Experience%20and%20would%20love%20to%20learn%20more.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0APreference%20(Half-Day%20%242%2C500%20%2F%20Full-Day%20%245%2C000)%3A%0APreferred%20dates%20or%20timeframe%3A%0APhone%3A" class="program-card-btn outline" onclick="gtag('event','aaa_training_request_info_click',{button_location:'program_03'})">Request Info</a>
+                <a href="mailto:training@som.md?subject=Clinical%20Shadowing%20Experience%20%E2%80%94%20Application&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Clinical%20Shadowing%20Experience.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0APreference%20(Half-Day%20%242%2C500%20%2F%20Full-Day%20%245%2C000)%3A%0APreferred%20dates%20or%20timeframe%3A%0APhone%3A" class="program-card-btn" onclick="gtag('event','aaa_training_book_now_click',{button_location:'program_03'})">Apply Now</a>
               </div>
             </div>
           </div>
@@ -1221,172 +1261,185 @@
       </div>
     </section>
 
-    <!-- PROGRAM 01 DETAIL -->
-    <section class="program-detail" id="program-01" aria-labelledby="p01-heading">
-      <div class="program-detail-inner">
-        <p class="section-eyebrow">— Program 01</p>
-        <h2 class="section-title" id="p01-heading">Advanced Full <em>Facial Balancing</em></h2>
-        <div class="detail-meta-row" aria-label="Program 01 details">
-          <div class="detail-meta-cell"><p class="detail-meta-label">Date</p><p class="detail-meta-value">June 10, 2026</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Format</p><p class="detail-meta-value">Half-Day · 4 Hours</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Location</p><p class="detail-meta-value">SOM Aesthetics, Encinitas</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Capacity</p><p class="detail-meta-value">Max 3 Injectors</p></div>
+    <!-- PROGRAM DETAILS — TABBED -->
+    <section id="program-details" aria-label="Program details">
+      <div class="tabs-inner">
+        <div class="tabs-header">
+          <p class="section-eyebrow">— Program Details</p>
+          <h2 class="section-title">Explore Each <em>Training Program</em></h2>
         </div>
-        <p style="font-size:15px;font-weight:300;color:var(--grey-mid);line-height:1.7;margin-bottom:32px;max-width:680px;">This expert-level training is designed for experienced injectors who want to master facial assessment, aesthetic planning, and advanced injection techniques used to create natural facial harmony. Dr. Saami personally guides each participant through his complete approach to facial rejuvenation.</p>
-        <div class="program-detail-grid">
-          <div>
-            <p class="learn-title">What You'll Learn</p>
-            <ul class="learn-list" aria-label="Learning outcomes">
-              <li>Facial assessment framework for identifying structural and aesthetic imbalance</li>
-              <li>Strategic treatment planning for balanced outcomes across the face</li>
-              <li>Advanced injection techniques and product selection</li>
-              <li>Safety protocols and complication prevention</li>
-              <li>Real-time hands-on guidance while treating a live model</li>
-            </ul>
-            <div class="detail-note">
-              <strong>Deposit:</strong> $2,000 required to reserve date. <strong>Cancellation:</strong> Minimum 2 weeks' notice required. <strong>License:</strong> Active California medical license required to participate hands-on. <strong>Model:</strong> Injectors are expected to bring their own model. Model coordination available for an additional $500.
-            </div>
-          </div>
-          <div>
-            <div class="pricing-card" role="complementary" aria-label="Program 01 pricing">
-              <p class="pricing-title">Investment Options</p>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Hands-On (CA Licensed)</p>
-                <p class="pricing-option-price">$6,500</p>
-                <p class="pricing-option-note">Per CA-licensed injector</p>
-              </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Hands-On Pair</p>
-                <p class="pricing-option-price">$5,000</p>
-                <p class="pricing-option-note">Per provider — 2 providers, hands-on together</p>
-              </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Observer Only</p>
-                <p class="pricing-option-price">$3,500</p>
-                <p class="pricing-option-note">For providers without a CA license</p>
-              </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Observer Add-On</p>
-                <p class="pricing-option-price">+$1,000</p>
-                <p class="pricing-option-note">Attend alongside a registered injector</p>
-              </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Model Coordination</p>
-                <p class="pricing-option-price">+$500</p>
-                <p class="pricing-option-note">If our team coordinates your model</p>
-              </div>
-              <a href="mailto:training@som.md?subject=Application%20%E2%80%94%20Advanced%20Full%20Facial%20Balancing%20(June%2010)&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Advanced%20Full%20Facial%20Balancing%20Training%20on%20June%2010%2C%202026.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0AParticipation%20type%20(Hands-On%20%2F%20Observer%20%2F%20Pair)%3A%0AWill%20you%20bring%20your%20own%20model%3F%20(Yes%20%2F%20No%20%2F%20Need%20coordination)%3A%0APhone%3A" class="program-card-btn" style="margin-top:8px;display:block;text-align:center;" onclick="gtag('event','aaa_training_book_now_click',{button_location:'p01_detail'})">Apply Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- PROGRAM 02 DETAIL -->
-    <section class="program-detail" id="program-02" aria-labelledby="p02-heading">
-      <div class="program-detail-inner">
-        <p class="section-eyebrow">— Program 02</p>
-        <h2 class="section-title" id="p02-heading">Advanced Laser <em>Masterclass</em></h2>
-        <div class="detail-meta-row" aria-label="Program 02 details">
-          <div class="detail-meta-cell"><p class="detail-meta-label">Date</p><p class="detail-meta-value">October 16, 2026</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Format</p><p class="detail-meta-value">Full Day</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Location</p><p class="detail-meta-value">SOM Aesthetics, Encinitas</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Capacity</p><p class="detail-meta-value">Max 10 Participants</p></div>
+        <!-- Tab strip -->
+        <div class="tab-strip" role="tablist" aria-label="Training programs">
+          <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-p01" onclick="switchTab(event,'tab-p01')">
+            Full Facial Balancing
+            <span class="tab-date">June 10, 2026</span>
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-p02" onclick="switchTab(event,'tab-p02')">
+            Laser Masterclass
+            <span class="tab-date">October 16, 2026</span>
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-p03" onclick="switchTab(event,'tab-p03')">
+            Clinical Shadowing
+            <span class="tab-date">Flexible Dates</span>
+          </button>
         </div>
-        <p style="font-size:15px;font-weight:300;color:var(--grey-mid);line-height:1.7;margin-bottom:32px;max-width:680px;">This advanced laser training focuses on the treatment protocols used in modern aesthetic dermatology to improve outcomes, combine technologies, and safely perform high-level laser procedures. Live demonstrations of all laser modalities are included.</p>
-        <div class="program-detail-grid">
-          <div>
-            <p class="learn-title">Course Curriculum</p>
-            <ul class="learn-list" aria-label="Course curriculum">
-              <li>Laser consultation and patient assessment</li>
-              <li>Treatment planning across multiple modalities</li>
-              <li>Laser stacking strategies for optimal outcomes</li>
-              <li>Safety protocols and complication management</li>
-              <li>Hands-on simulation exercises (treatment depth, density, and coverage)</li>
-              <li>Treatment planning for the face, neck, and chest</li>
-            </ul>
-            <p class="learn-title" style="margin-top:28px;">Technologies Covered</p>
-            <div class="tech-tags" aria-label="Laser technologies covered">
-              <span class="tech-tag">BBL</span>
-              <span class="tech-tag">Clear V</span>
-              <span class="tech-tag">Clear Silk</span>
-              <span class="tech-tag">Halo Tribrid</span>
-              <span class="tech-tag">ProFractional</span>
-              <span class="tech-tag">Contour TRL</span>
-            </div>
-          </div>
-          <div>
-            <div class="pricing-card" role="complementary" aria-label="Program 02 pricing">
-              <p class="pricing-title">Investment Options</p>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Early Bird</p>
-                <p class="pricing-option-price">$4,000</p>
-                <p class="pricing-option-note">10% off by May · 10 spots available</p>
-              </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Standard</p>
-                <p class="pricing-option-price">$5,000</p>
-                <p class="pricing-option-note">Includes full-day Laser Masterclass</p>
-              </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Contour TRL Add-On</p>
-                <p class="pricing-option-price">+$1,500</p>
-                <p class="pricing-option-note">Live end-of-day Contour TRL demonstration by Dr. Saami</p>
-              </div>
-              <a href="mailto:training@som.md?subject=Application%20%E2%80%94%20Advanced%20Laser%20Masterclass%20(October%2016)&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Advanced%20Laser%20Masterclass%20on%20October%2016%2C%202026.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0APricing%20preference%20(Early%20Bird%20%244%2C000%20%2F%20Standard%20%245%2C000)%3A%0AContour%20TRL%20add-on%20interest%3F%20(Yes%20%2F%20No)%3A%0APhone%3A" class="program-card-btn" style="margin-top:8px;display:block;text-align:center;" onclick="gtag('event','aaa_training_book_now_click',{button_location:'p02_detail'})">Apply Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- PROGRAM 03 DETAIL -->
-    <section class="program-detail" id="program-03" aria-labelledby="p03-heading">
-      <div class="program-detail-inner">
-        <p class="section-eyebrow">— Program 03</p>
-        <h2 class="section-title" id="p03-heading">Clinical Shadowing <em>Experience</em></h2>
-        <div class="detail-meta-row" aria-label="Program 03 details">
-          <div class="detail-meta-cell"><p class="detail-meta-label">Date</p><p class="detail-meta-value">Flexible Dates</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Format</p><p class="detail-meta-value">Half-Day or Full-Day</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Location</p><p class="detail-meta-value">SOM Aesthetics, Encinitas</p></div>
-          <div class="detail-meta-cell"><p class="detail-meta-label">Capacity</p><p class="detail-meta-value">Private · By Request</p></div>
-        </div>
-        <p style="font-size:15px;font-weight:300;color:var(--grey-mid);line-height:1.7;margin-bottom:32px;max-width:680px;">For providers who want a deeper understanding of how a high-level aesthetic practice operates. Learn how Dr. Saami utilizes the SOM Method and empathetic listening to translate emotional experiences into cosmetic outcomes — gaining inside access to how trust, communication, and clinical expertise combine to create lasting patient relationships.</p>
-        <div class="program-detail-grid">
-          <div>
-            <p class="learn-title">During This Experience You'll Observe</p>
-            <ul class="learn-list" aria-label="Shadowing experience details">
-              <li>Real patient consultations and facial assessments</li>
-              <li>Treatment planning strategies used in clinical practice</li>
-              <li>Advanced injectable procedures and techniques</li>
-              <li>Dr. Saami's philosophy behind natural facial rejuvenation</li>
-              <li>How a high-end practice structures consultations and patient outcomes</li>
-            </ul>
-            <p class="learn-title" style="margin-top:28px;">What You'll Take Away</p>
-            <ul class="learn-list" aria-label="Takeaways">
-              <li>A refined framework for patient consultation and emotional attunement</li>
-              <li>Insight into how aesthetic goals are translated into treatment plans</li>
-              <li>Exposure to real-world clinical decision-making in a high-volume practice</li>
-              <li>Direct access to Dr. Saami's approach, philosophy, and technique</li>
-            </ul>
-          </div>
-          <div>
-            <div class="pricing-card" role="complementary" aria-label="Program 03 pricing">
-              <p class="pricing-title">Investment Options</p>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Half-Day</p>
-                <p class="pricing-option-price">$2,500</p>
-                <p class="pricing-option-note">Clinical shadowing experience</p>
+        <!-- Panel 01: Full Facial Balancing -->
+        <div class="tab-panel active" id="tab-p01" role="tabpanel">
+          <div class="tab-card">
+            <div class="tab-meta-bar">
+              <div class="tab-meta-item"><p class="tab-meta-label">Date</p><p class="tab-meta-value">June 10, 2026</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Format</p><p class="tab-meta-value">Half-Day · 4 Hours</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Location</p><p class="tab-meta-value">SOM Aesthetics, Encinitas</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Capacity</p><p class="tab-meta-value">Max 3 Injectors</p></div>
+            </div>
+            <div class="tab-body">
+              <div class="tab-content">
+                <p class="detail-intro">Expert-level training for experienced injectors ready to master facial assessment, aesthetic planning, and advanced injection techniques. Dr. Saami personally guides each participant through his complete approach to natural facial rejuvenation.</p>
+                <p class="learn-title">What You'll Learn</p>
+                <ul class="learn-list">
+                  <li>Facial assessment framework for identifying structural and aesthetic imbalance</li>
+                  <li>Strategic treatment planning for balanced outcomes across the face</li>
+                  <li>Advanced injection techniques and product selection</li>
+                  <li>Safety protocols and complication prevention</li>
+                  <li>Real-time hands-on guidance while treating a live model</li>
+                </ul>
+                <div class="detail-note">
+                  <strong>Deposit:</strong> $2,000 to reserve. <strong>Cancellation:</strong> Min. 2 weeks' notice. <strong>License:</strong> Active CA medical license required for hands-on. <strong>Model:</strong> Bring your own, or add coordination for +$500.
+                </div>
               </div>
-              <div class="pricing-option">
-                <p class="pricing-option-name">Full-Day</p>
-                <p class="pricing-option-price">$5,000</p>
-                <p class="pricing-option-note">Immersive full-day observation experience</p>
+              <div class="tab-pricing">
+                <p class="pricing-title">Investment Options</p>
+                <div class="pricing-cards">
+                  <div class="price-card featured">
+                    <p class="price-card-name">Hands-On</p>
+                    <p class="price-card-amount">$6,500</p>
+                    <p class="price-card-note">Per CA-licensed injector</p>
+                  </div>
+                  <div class="price-card">
+                    <p class="price-card-name">Hands-On Pair</p>
+                    <p class="price-card-amount">$5,000</p>
+                    <p class="price-card-note">Per provider, 2 together</p>
+                  </div>
+                  <div class="price-card">
+                    <p class="price-card-name">Observer Only</p>
+                    <p class="price-card-amount">$3,500</p>
+                    <p class="price-card-note">No CA license required</p>
+                  </div>
+                  <div class="price-card">
+                    <p class="price-card-name">Observer Add-On</p>
+                    <p class="price-card-amount">+$1,000</p>
+                    <p class="price-card-note">Alongside a registered injector</p>
+                  </div>
+                </div>
+                <div class="pricing-addons"><strong>+ $500</strong> model coordination if needed</div>
+                <a href="mailto:training@som.md?subject=Application%20%E2%80%94%20Advanced%20Full%20Facial%20Balancing%20(June%2010)&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Advanced%20Full%20Facial%20Balancing%20Training%20on%20June%2010%2C%202026.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0AParticipation%20type%20(Hands-On%20%2F%20Observer%20%2F%20Pair)%3A%0AWill%20you%20bring%20your%20own%20model%3F%20(Yes%20%2F%20No%20%2F%20Need%20coordination)%3A%0APhone%3A" class="pricing-apply-btn" onclick="gtag('event','aaa_training_book_now_click',{button_location:'p01_tab'})">Apply Now</a>
               </div>
-              <a href="mailto:training@som.md?subject=Clinical%20Shadowing%20Experience%20%E2%80%94%20Request%20Info&body=Hi%2C%0A%0AI%27m%20interested%20in%20the%20Clinical%20Shadowing%20Experience%20and%20would%20love%20to%20learn%20more.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0APreference%20(Half-Day%20%242%2C500%20%2F%20Full-Day%20%245%2C000)%3A%0APreferred%20dates%20or%20timeframe%3A%0APhone%3A" class="program-card-btn outline" style="margin-top:8px;display:block;text-align:center;" onclick="gtag('event','aaa_training_request_info_click',{button_location:'p03_detail'})">Request Info</a>
             </div>
           </div>
         </div>
+
+        <!-- Panel 02: Laser Masterclass -->
+        <div class="tab-panel" id="tab-p02" role="tabpanel">
+          <div class="tab-card">
+            <div class="tab-meta-bar">
+              <div class="tab-meta-item"><p class="tab-meta-label">Date</p><p class="tab-meta-value">October 16, 2026</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Format</p><p class="tab-meta-value">Full Day</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Location</p><p class="tab-meta-value">SOM Aesthetics, Encinitas</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Capacity</p><p class="tab-meta-value">Max 10 Participants</p></div>
+            </div>
+            <div class="tab-body">
+              <div class="tab-content">
+                <p class="detail-intro">Advanced laser training covering the protocols used in modern aesthetic dermatology — combining technologies, improving outcomes, and safely performing high-level procedures. Includes live demonstrations of every laser modality by Dr. Saami.</p>
+                <p class="learn-title">Course Curriculum</p>
+                <ul class="learn-list">
+                  <li>Laser consultation and patient assessment</li>
+                  <li>Treatment planning across multiple modalities</li>
+                  <li>Laser stacking strategies for optimal outcomes</li>
+                  <li>Safety protocols and complication management</li>
+                  <li>Hands-on simulation exercises (depth, density, coverage)</li>
+                  <li>Treatment planning for face, neck, and chest</li>
+                </ul>
+                <p class="learn-title" style="margin-top:24px;">Technologies Covered</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">BBL</span>
+                  <span class="tech-tag">Clear V</span>
+                  <span class="tech-tag">Clear Silk</span>
+                  <span class="tech-tag">Halo Tribrid</span>
+                  <span class="tech-tag">ProFractional</span>
+                  <span class="tech-tag">Contour TRL</span>
+                </div>
+              </div>
+              <div class="tab-pricing">
+                <p class="pricing-title">Investment Options</p>
+                <div class="pricing-cards">
+                  <div class="price-card featured">
+                    <p class="price-card-name">Early Bird</p>
+                    <p class="price-card-amount">$4,000</p>
+                    <p class="price-card-note">10% off by May · 10 spots</p>
+                  </div>
+                  <div class="price-card">
+                    <p class="price-card-name">Standard</p>
+                    <p class="price-card-amount">$5,000</p>
+                    <p class="price-card-note">Full-day Masterclass</p>
+                  </div>
+                </div>
+                <div class="pricing-addons"><strong>+ $1,500</strong> Contour TRL add-on — live end-of-day demonstration by Dr. Saami</div>
+                <a href="mailto:training@som.md?subject=Application%20%E2%80%94%20Advanced%20Laser%20Masterclass%20(October%2016)&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Advanced%20Laser%20Masterclass%20on%20October%2016%2C%202026.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0APricing%20preference%20(Early%20Bird%20%244%2C000%20%2F%20Standard%20%245%2C000)%3A%0AContour%20TRL%20add-on%20interest%3F%20(Yes%20%2F%20No)%3A%0APhone%3A" class="pricing-apply-btn" onclick="gtag('event','aaa_training_book_now_click',{button_location:'p02_tab'})">Apply Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 03: Clinical Shadowing -->
+        <div class="tab-panel" id="tab-p03" role="tabpanel">
+          <div class="tab-card">
+            <div class="tab-meta-bar">
+              <div class="tab-meta-item"><p class="tab-meta-label">Date</p><p class="tab-meta-value">Flexible Dates</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Format</p><p class="tab-meta-value">Half-Day or Full-Day</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Location</p><p class="tab-meta-value">SOM Aesthetics, Encinitas</p></div>
+              <div class="tab-meta-item"><p class="tab-meta-label">Capacity</p><p class="tab-meta-value">Private · By Request</p></div>
+            </div>
+            <div class="tab-body">
+              <div class="tab-content">
+                <p class="detail-intro">For providers who want a deeper look inside how a high-level aesthetic practice operates. Learn how Dr. Saami uses the SOM Method and empathetic listening to translate patient goals into exceptional cosmetic outcomes.</p>
+                <p class="learn-title">During This Experience You'll Observe</p>
+                <ul class="learn-list">
+                  <li>Real patient consultations and facial assessments</li>
+                  <li>Treatment planning strategies used in clinical practice</li>
+                  <li>Advanced injectable procedures and techniques</li>
+                  <li>Dr. Saami's philosophy behind natural facial rejuvenation</li>
+                  <li>How a high-end practice structures consultations and outcomes</li>
+                </ul>
+                <p class="learn-title" style="margin-top:24px;">What You'll Take Away</p>
+                <ul class="learn-list">
+                  <li>A refined framework for patient consultation and emotional attunement</li>
+                  <li>Insight into how aesthetic goals are translated into treatment plans</li>
+                  <li>Exposure to real-world clinical decision-making in a high-volume practice</li>
+                  <li>Direct access to Dr. Saami's approach, philosophy, and technique</li>
+                </ul>
+              </div>
+              <div class="tab-pricing">
+                <p class="pricing-title">Investment Options</p>
+                <div class="pricing-cards">
+                  <div class="price-card featured">
+                    <p class="price-card-name">Half-Day</p>
+                    <p class="price-card-amount">$2,500</p>
+                    <p class="price-card-note">Clinical shadowing experience</p>
+                  </div>
+                  <div class="price-card">
+                    <p class="price-card-name">Full-Day</p>
+                    <p class="price-card-amount">$5,000</p>
+                    <p class="price-card-note">Immersive full-day observation</p>
+                  </div>
+                </div>
+                <a href="mailto:training@som.md?subject=Clinical%20Shadowing%20Experience%20%E2%80%94%20Application&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Clinical%20Shadowing%20Experience.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0APreference%20(Half-Day%20%242%2C500%20%2F%20Full-Day%20%245%2C000)%3A%0APreferred%20dates%20or%20timeframe%3A%0APhone%3A" class="pricing-apply-btn" onclick="gtag('event','aaa_training_book_now_click',{button_location:'p03_tab'})">Apply Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1394,10 +1447,10 @@
     <section id="apply" aria-labelledby="cta-heading">
       <p class="section-eyebrow">— Ready to Elevate Your Practice?</p>
       <h2 class="section-title" id="cta-heading">Spots Are <em>Limited.</em><br>Apply Now.</h2>
-      <p class="cta-sub">Training availability is limited due to Dr. Saami's clinical and international teaching schedule. Apply now or join the waitlist to be considered for the next available cohort.</p>
+      <p class="cta-sub">Training availability is limited due to Dr. Saami's clinical and international teaching schedule. Apply now or reach out to learn more about upcoming dates.</p>
       <div class="cta-btns">
         <a href="mailto:training@som.md?subject=Training Application — Aesthetic Arts Academy&body=Hi%2C%0A%0AI%27d%20like%20to%20apply%20for%20one%20of%20the%20AAA%20Training%20Programs.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0AProgram%20of%20Interest%20(Full%20Facial%20Balancing%20%2F%20Laser%20Masterclass%20%2F%20Clinical%20Shadowing)%3A%0APhone%3A%0AAnything%20else%20you%27d%20like%20us%20to%20know%3A" class="btn-primary" onclick="gtag('event','aaa_training_book_now_click',{button_location:'final_cta'})">Apply Now</a>
-        <a href="mailto:training@som.md?subject=Training Waitlist — Aesthetic Arts Academy&body=Hi%2C%0A%0AI%27d%20like%20to%20be%20added%20to%20the%20waitlist%20for%20an%20AAA%20Training%20Program.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0AProgram%20of%20Interest%20(Full%20Facial%20Balancing%20%2F%20Laser%20Masterclass%20%2F%20Clinical%20Shadowing)%3A%0APhone%3A" class="btn-outline" onclick="gtag('event','aaa_training_waitlist_click',{button_location:'final_cta'})">Join Waitlist</a>
+        <a href="mailto:training@som.md?subject=Request Information — Aesthetic Arts Academy Training&body=Hi%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20the%20AAA%20Training%20Programs.%0A%0AName%3A%0ACredentials%20(RN%2C%20NP%2C%20PA-C%2C%20MD%2C%20DO)%3A%0AProgram%20of%20Interest%20(Full%20Facial%20Balancing%20%2F%20Laser%20Masterclass%20%2F%20Clinical%20Shadowing)%3A%0APhone%3A%0AQuestions%3A" class="btn-outline" onclick="gtag('event','aaa_training_request_info_click',{button_location:'final_cta'})">Request Information</a>
       </div>
       <p class="cta-note">Questions? Call us at <a href="tel:7607667546" style="color:rgba(255,255,255,0.55);">760-766-7546</a> or email <a href="mailto:training@som.md" style="color:rgba(255,255,255,0.55);">training@som.md</a></p>
     </section>
@@ -1411,8 +1464,9 @@
 
   <!-- FOOTER -->
   <footer>
-    <img src="aaa_landing_page_assets/aaa_logo_white.png" alt="Aesthetic Arts Academy" style="height:40px;width:auto;margin:0 auto 16px;display:block;opacity:0.85;" />
+    <img src="aaa_landing_page_assets/aaa_logo_white.png" alt="Aesthetic Arts Academy" style="height:44px;width:auto;margin:0 auto 12px;display:block;" />
     <p class="footer-tagline">— Science Meets Artistry —</p>
+    <div class="footer-divider"></div>
     <nav class="footer-links" aria-label="Footer links">
       <a href="https://www.som.md?utm_source=aaa-training-landing&utm_medium=referral&utm_campaign=aaa-training-2026">SOM Aesthetics</a>
       <a href="https://www.som.md/about?utm_source=aaa-training-landing&utm_medium=referral&utm_campaign=aaa-training-2026">About Dr. Saami</a>
@@ -1432,6 +1486,20 @@
   </div>
 
   <script>
+    // Tab interface: show the selected panel, hide others
+    function switchTab(e, panelId) {
+      document.querySelectorAll('.tab-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(function(panel) {
+        panel.classList.remove('active');
+      });
+      e.currentTarget.classList.add('active');
+      e.currentTarget.setAttribute('aria-selected', 'true');
+      document.getElementById(panelId).classList.add('active');
+    }
+
     // Hero form: build mailto with course-specific subject + pre-filled body
     function handleHeroForm(e) {
       e.preventDefault();
